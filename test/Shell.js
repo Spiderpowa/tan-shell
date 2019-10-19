@@ -13,7 +13,7 @@ contract('Shell', function(accounts) {
   });
 
   it("should emit event for stdout", async function() {
-    const stream = ['0x01', '0x02', '0x03', '0x04'];
+    const stream = "0x01020304"
     const result = await ShellContract.stdout(13, stream, true, {from: accounts[1]})
     assert.equal(result.logs.length, 1);
     assert.equal(result.logs[0].event, 'Stdout');
@@ -25,7 +25,7 @@ contract('Shell', function(accounts) {
   });
 
   it("should emit event for stderr", async function() {
-    const stream = ['0x01', '0x02', '0x03', '0x04'];
+    const stream = "0x01020304";
     const result = await ShellContract.stderr(14, stream, true, {from: accounts[1]})
     assert.equal(result.logs.length, 1);
     assert.equal(result.logs[0].event, 'Stderr');
@@ -37,7 +37,7 @@ contract('Shell', function(accounts) {
   });
 
   it("should emit event for stdin", async function() {
-    const stream = ['0x01', '0x02', '0x03', '0x04'];
+    const stream = "0x01020304";
     const result = await ShellContract.stdin(1, 12, stream, true, {from: accounts[0]})
     assert.equal(result.logs.length, 1);
     assert.equal(result.logs[0].event, 'Stdin');
@@ -55,7 +55,7 @@ contract('Shell', function(accounts) {
   });
 
   it("should reject unregistered client", async function() {
-    const stream = ['0x01', '0x02'];
+    const stream = "0x0102";
     assert.rejects(() => {
       return ShellContract.stdout(1, stream, true, {from:accounts[2]});
     }, {reason: "unknown client"} );
@@ -65,14 +65,14 @@ contract('Shell', function(accounts) {
   });
 
   it("should reject non owner using stdin", async function() {
-    const stream = ['0x01', '0x02'];
+    const stream = "0x0102";
     assert.rejects(() => {
       return ShellContract.stdin(1, 3, stream, true, {from:accounts[1]});
     }, {reason: "Ownable: caller is not the owner"});
   });
 
   it("should prevent owner inputting unknown client index", async function() {
-    const stream = ['0x01', '0x02'];
+    const stream = "0x0102";
     assert.rejects(() => {
       return ShellContract.stdin(0, 4, stream, true, {from:accounts[1]});
     }, {reason: "invalid client index"});
