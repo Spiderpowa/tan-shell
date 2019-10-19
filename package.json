@@ -9,6 +9,7 @@
   "scripts": {
     "test": "truffle test",
     "compile": "truffle compile",
+    "abigen:go": "jq '.abi' build/contracts/Shell.json > build/Shell.abi; abigen --abi build/Shell.abi --pkg tanshell --out contract.go",
     "migrate": "truffle migrate --network tangerine-mainnet",
     "migrate:testnet": "truffle migrate --network tangerine-testnet",
     "migrate:ropsten": "truffle migrate --network ropsten",
@@ -16,6 +17,10 @@
   },
   "dependencies": {
     "openzeppelin-solidity": "^2.3.0",
-    "truffle": "^5.0.41"
+    "truffle": "^5.0.41",
+    "truffle-hdwallet-provider": "^1.0.17"
+  },
+  "devDependencies": {
+    "node-jq": "^1.10.3"
   }
 }
