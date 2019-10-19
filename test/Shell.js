@@ -9,7 +9,17 @@ contract('Shell', function(accounts) {
   });
 
   it("should add a new client", async function() {
-    await ShellContract.addClient(accounts[1]);
+    const result = await ShellContract.addClient(accounts[1]);
+    assert.equal(result.logs.length, 1);
+    assert.equal(result.logs[0].event, 'ClientAdded');
+    const args = result.logs[0].args;
+    assert.equal(args.clientIndex, 1);
+    assert.equal(args.client, accounts[1]);
+  });
+
+  it("should return my client id", async function() {
+    const result = await ShellContract.clientID(accounts[1]);
+    assert.equal(result, 1);
   });
 
   it("should emit event for stdout", async function() {
@@ -48,6 +58,10 @@ contract('Shell', function(accounts) {
     assert.equal(args.eof, true);
   });
   // negative tests
+  it("should return 0 for unregistered client", async function() {
+    const result = await ShellContract.clientID(accounts[2]);
+    assert.equal(result, 0);
+  });
   it("should not allow adding duplicated clients", async function() {
     assert.rejects(() => {
       return ShellContract.addClient(accounts[1])

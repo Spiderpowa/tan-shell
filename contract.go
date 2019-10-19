@@ -28,7 +28,7 @@ var (
 )
 
 // TanshellABI is the input ABI used to generate the binding from.
-const TanshellABI = "[{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"clientIndex\",\"type\":\"int256\"},{\"indexed\":true,\"name\":\"client\",\"type\":\"address\"}],\"name\":\"ClientAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"clientIndex\",\"type\":\"int256\"},{\"indexed\":true,\"name\":\"msgId\",\"type\":\"int256\"},{\"indexed\":false,\"name\":\"stream\",\"type\":\"bytes\"},{\"indexed\":false,\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"Stdout\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"clientIndex\",\"type\":\"int256\"},{\"indexed\":true,\"name\":\"msgId\",\"type\":\"int256\"},{\"indexed\":false,\"name\":\"stream\",\"type\":\"bytes\"},{\"indexed\":false,\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"Stderr\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"clientIndex\",\"type\":\"int256\"},{\"indexed\":true,\"name\":\"msgId\",\"type\":\"int256\"},{\"indexed\":false,\"name\":\"stream\",\"type\":\"bytes\"},{\"indexed\":false,\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"Stdin\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"name\":\"client\",\"type\":\"address\"}],\"name\":\"addClient\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"msgId\",\"type\":\"int256\"},{\"name\":\"stream\",\"type\":\"bytes\"},{\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"stdout\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"msgId\",\"type\":\"int256\"},{\"name\":\"stream\",\"type\":\"bytes\"},{\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"stderr\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"clientIndex\",\"type\":\"int256\"},{\"name\":\"msgId\",\"type\":\"int256\"},{\"name\":\"stream\",\"type\":\"bytes\"},{\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"stdin\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
+const TanshellABI = "[{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"clientID\",\"outputs\":[{\"name\":\"\",\"type\":\"int256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"clientIndex\",\"type\":\"int256\"},{\"indexed\":true,\"name\":\"client\",\"type\":\"address\"}],\"name\":\"ClientAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"clientIndex\",\"type\":\"int256\"},{\"indexed\":true,\"name\":\"msgId\",\"type\":\"int256\"},{\"indexed\":false,\"name\":\"stream\",\"type\":\"bytes\"},{\"indexed\":false,\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"Stdout\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"clientIndex\",\"type\":\"int256\"},{\"indexed\":true,\"name\":\"msgId\",\"type\":\"int256\"},{\"indexed\":false,\"name\":\"stream\",\"type\":\"bytes\"},{\"indexed\":false,\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"Stderr\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"clientIndex\",\"type\":\"int256\"},{\"indexed\":true,\"name\":\"msgId\",\"type\":\"int256\"},{\"indexed\":false,\"name\":\"stream\",\"type\":\"bytes\"},{\"indexed\":false,\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"Stdin\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"name\":\"client\",\"type\":\"address\"}],\"name\":\"addClient\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"msgId\",\"type\":\"int256\"},{\"name\":\"stream\",\"type\":\"bytes\"},{\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"stdout\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"msgId\",\"type\":\"int256\"},{\"name\":\"stream\",\"type\":\"bytes\"},{\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"stderr\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"clientIndex\",\"type\":\"int256\"},{\"name\":\"msgId\",\"type\":\"int256\"},{\"name\":\"stream\",\"type\":\"bytes\"},{\"name\":\"eof\",\"type\":\"bool\"}],\"name\":\"stdin\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"
 
 // Tanshell is an auto generated Go binding around an Ethereum contract.
 type Tanshell struct {
@@ -170,6 +170,32 @@ func (_Tanshell *TanshellTransactorRaw) Transfer(opts *bind.TransactOpts) (*type
 // Transact invokes the (paid) contract method with params as input values.
 func (_Tanshell *TanshellTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
 	return _Tanshell.Contract.contract.Transact(opts, method, params...)
+}
+
+// ClientID is a free data retrieval call binding the contract method 0x5afd0554.
+//
+// Solidity: function clientID(address ) constant returns(int256)
+func (_Tanshell *TanshellCaller) ClientID(opts *bind.CallOpts, arg0 common.Address) (*big.Int, error) {
+	var (
+		ret0 = new(*big.Int)
+	)
+	out := ret0
+	err := _Tanshell.contract.Call(opts, out, "clientID", arg0)
+	return *ret0, err
+}
+
+// ClientID is a free data retrieval call binding the contract method 0x5afd0554.
+//
+// Solidity: function clientID(address ) constant returns(int256)
+func (_Tanshell *TanshellSession) ClientID(arg0 common.Address) (*big.Int, error) {
+	return _Tanshell.Contract.ClientID(&_Tanshell.CallOpts, arg0)
+}
+
+// ClientID is a free data retrieval call binding the contract method 0x5afd0554.
+//
+// Solidity: function clientID(address ) constant returns(int256)
+func (_Tanshell *TanshellCallerSession) ClientID(arg0 common.Address) (*big.Int, error) {
+	return _Tanshell.Contract.ClientID(&_Tanshell.CallOpts, arg0)
 }
 
 // IsOwner is a free data retrieval call binding the contract method 0x8f32d59b.

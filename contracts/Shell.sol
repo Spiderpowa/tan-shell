@@ -3,7 +3,7 @@ pragma solidity ^0.5.0;
 import 'openzeppelin-solidity/contracts/ownership/Ownable.sol';
 
 contract Shell is Ownable {
-    mapping(address => int) private _clients; 
+    mapping(address => int) public clientID;
     int private _clientCount;
 
     event ClientAdded(int indexed clientIndex, address indexed client);
@@ -12,20 +12,20 @@ contract Shell is Ownable {
     event Stdin(int indexed clientIndex, int indexed msgId, bytes stream, bool eof);
 
     function addClient(address client) public onlyOwner {
-        require(_clients[client]==0, "already registered");
+        require(clientID[client]==0, "already registered");
         _clientCount += 1;
-        _clients[client] = _clientCount;
+        clientID[client] = _clientCount;
         emit ClientAdded(_clientCount, client);
     }
 
     function stdout(int msgId, bytes memory stream, bool eof) public {
-        int idx = _clients[msg.sender];
+        int idx = clientID[msg.sender];
         require(idx != 0, "unknown client");
         emit Stdout(idx, msgId, stream, eof);
     }
 
     function stderr(int msgId, bytes memory stream, bool eof) public {
-        int idx = _clients[msg.sender];
+        int idx = clientID[msg.sender];
         require(idx != 0, "unknown client");
         emit Stderr(idx, msgId, stream, eof);
     }
